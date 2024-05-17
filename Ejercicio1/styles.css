@@ -19,3 +19,6 @@ body{
     gap: 1rem;
 }
 
+.big{
+    grid-column: 2 span;
+}
