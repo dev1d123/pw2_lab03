@@ -19,3 +19,12 @@ numerosAleatorios.forEach(elem =>{
 });
 
 console.log(arreglo);
+
+//obtener los elementos 
+var buttons = document.querySelectorAll(".b");
+console.log(buttons);
+var index = 0;
+buttons.forEach(b =>{
+    b.textContent = arreglo[index];
+    index++;
+});
