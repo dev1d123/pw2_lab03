@@ -37,3 +37,6 @@ button:hover{
 .big{
     grid-row: 2 span;
 }
+.stack{
+    display: grid;
+}
