@@ -28,3 +28,19 @@ buttons.forEach(b =>{
     b.textContent = arreglo[index];
     index++;
 });
+
+//agregando funcionalidad a los botones
+var input = document.getElementById("in");
+console.log(input);
+buttons.forEach(b =>{
+    b.addEventListener('click', function(){
+        console.log("click", b.textContent);
+        input.value = input.value + b.textContent;
+    });
+});
+
+
+var cl = document.getElementById("clear");
+cl.addEventListener('click', function(){
+    input.value = "";
+});
