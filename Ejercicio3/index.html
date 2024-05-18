@@ -7,8 +7,6 @@
     <title>El ahorcado!</title>
 </head>
 <body>
-    
-
     <div class="menu-inicial">
         <p>Bienvenido al juego del ahorcado</p>
         <ol>
@@ -23,21 +21,65 @@
                 </ul>
             </li>
         </ol>
-        <div class="diff easy">
-            <p>Tamaño: 5</p>
-            <p>Errores: 10</p>
-            <button id="easy">FACIL</button>
+        <div class="options">
+            <div class="diff easy">
+                <p>Tamaño: 5</p>
+                <p>Errores: 10</p>
+                <button id="easy">FACIL</button>
+            </div>
+            <div class="diff medium">
+                <p>Tamaño: 8</p>
+                <p>Errores: 5</p>
+                <button id="medium">MEDIO</button>
+            </div>
+            <div class="diff hard">
+                <p>Tamaño: 12</p>
+                <p>Errores: 3</p>
+                <button id="hard">DIFICIL</button>
+            </div>
         </div>
-        <div class="diff medium">
-            <p>Tamaño: 8</p>
-            <p>Errores: 5</p>
-            <button id="medium">MEDIO</button>
+    </div>
+
+    <div class="field">
+        <p class="logo">EL AHORCADO!</p>
+        <p>Dificultad: <span id="diff"></span></p>
+        <div class="game">
+            <div class="draw">
+                <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+            </div>
+            <p>Palabras adivinadas</p>
+            <p class="word">_</p>
         </div>
-        <div class="diff hard">
-            <p>Tamaño: 12</p>
-            <p>Errores: 3</p>
-            <button id="hard">DIFICIL</button>
+        <div class="teclas">
+            <button id="kw">q</button>
+            <button id="kw">w</button>
+            <button id="kw">e</button>
+            <button id="kw">r</button>
+            <button id="kw">t</button>
+            <button id="kw">y</button>
+            <button id="kw">u</button>
+            <button id="kw">i</button>
+            <button id="kw">o</button>
+            <button id="kw">p</button>
+            <button id="kw">a</button>
+            <button id="kw">s</button>
+            <button id="kw">d</button>
+            <button id="kw">f</button>
+            <button id="kw">g</button>
+            <button id="kw">h</button>
+            <button id="kw">j</button>
+            <button id="kw">k</button>
+            <button id="kw">l</button>
+            <button id="kw">ñ</button>
+            <button id="kw">z</button>
+            <button id="kw">x</button>
+            <button id="kw">c</button>
+            <button id="kw">v</button>
+            <button id="kw">b</button>
+            <button id="kw">n</button>
+            <button id="kw">m</button>
         </div>
+        
     </div>
 
 </body>
