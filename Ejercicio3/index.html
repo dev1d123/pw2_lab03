@@ -7,7 +7,7 @@
     <title>El ahorcado!</title>
 </head>
 <body>
-    <div class="menu-inicial">
+    <div id = "menu-inicial" class="menu-inicial">
         <p>Bienvenido al juego del ahorcado</p>
         <ol>
             <li>El juego comienza con una palabra secreta que debe ser adivinada.</li>
@@ -25,17 +25,17 @@
             <div class="diff easy">
                 <p>Tamaño: 5</p>
                 <p>Errores: 10</p>
-                <button id="easy">FACIL</button>
+                <button id="easy" onclick="diffSelection(1)">FACIL</button>
             </div>
             <div class="diff medium">
                 <p>Tamaño: 8</p>
                 <p>Errores: 5</p>
-                <button id="medium">MEDIO</button>
+                <button id="medium" onclick="diffSelection(2)">MEDIO</button>
             </div>
             <div class="diff hard">
                 <p>Tamaño: 12</p>
                 <p>Errores: 3</p>
-                <button id="hard">DIFICIL</button>
+                <button id="hard" onclick="diffSelection(3)">DIFICIL</button>
             </div>
         </div>
     </div>
@@ -48,7 +48,7 @@
                 <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
             </div>
             <p>Palabras adivinadas</p>
-            <p class="word">_</p>
+            <p class="word" id ="word"></p>
         </div>
         <div class="teclas">
             <button id="kw">q</button>
@@ -81,6 +81,12 @@
         </div>
         
     </div>
-
+    <div class="container">
+        <div class="lives">
+            <p>Intentos restantes <span id="lives"></span></p>
+        </div>
+    </div>
+    
+    <script src="script_ejercicio_03.js"></script>
 </body>
 </html>
