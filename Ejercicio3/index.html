@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>El ahorcado!</title>
+</head>
+<body>
+    
+
+    <div class="menu-inicial">
+        <p>Bienvenido al juego del ahorcado</p>
+        <ol>
+            <li>El juego comienza con una palabra secreta que debe ser adivinada.</li>
+            <li>El jugador intenta adivinar la palabra proponiendo letras, una a la vez.</li>
+            <li>Si la letra propuesta está en la palabra secreta, se revela en su posición correspondiente.</li>
+            <li>Si la letra propuesta no está en la palabra secreta, se añade una parte del dibujo del ahorcado.</li>
+            <li>El juego continúa hasta que:
+                <ul>
+                    <li>El jugador adivine todas las letras de la palabra (victoria), o</li>
+                    <li>El dibujo del ahorcado se complete (derrota).</li>
+                </ul>
+            </li>
+        </ol>
+        <div class="diff easy">
+            <p>Tamaño: 5</p>
+            <p>Errores: 10</p>
+            <button id="easy">FACIL</button>
+        </div>
+        <div class="diff medium">
+            <p>Tamaño: 8</p>
+            <p>Errores: 5</p>
+            <button id="medium">MEDIO</button>
+        </div>
+        <div class="diff hard">
+            <p>Tamaño: 12</p>
+            <p>Errores: 3</p>
+            <button id="hard">DIFICIL</button>
+        </div>
+    </div>
+
+</body>
+</html>
