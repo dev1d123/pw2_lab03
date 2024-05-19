@@ -1,4 +1,5 @@
 //Arreglos para las palabras!
+
 const arrEasy = [
     "manos",
     "lapiz",
@@ -34,15 +35,16 @@ const arrHard = [
     "medioambiente"
 ];
 
-let tries;
-
+var tries;
+var word;
+var elem;
+var lives;
 //obtener los botones
 let menuInicial = document.getElementById("menu-inicial");
 let messageDiff = document.getElementById("diff");
 function diffSelection(cod){
     console.log("Se selecciono, ", cod);
     menuInicial.style.display = "none";
-
     if(cod == 1){
         messageDiff.innerHTML = "Facil";
         easyGame();
@@ -53,17 +55,20 @@ function diffSelection(cod){
         messageDiff.innerHTML = "Dificil";
         hardGame();
     }
+    game(tries, word, elem, lives);
 }
+
+
 
 function easyGame(){
     tries = 6;
     //elegir la palabra!
     var index = Math.floor(Math.random()*11);
-    var word = arrEasy[index];
+    word = arrEasy[index];
     console.log("La palabra es: ", word);
     //definiendo los espacios en blanco!
-    var hiddenWord = document.getElementById("word");
-    var lives = document.getElementById("lives");
+    elem = document.getElementById("word");
+    lives = document.getElementById("lives");
     l = "";
     s = "";
     for(var i = 0; i < 5; i++){
@@ -72,24 +77,20 @@ function easyGame(){
     for(var i = 0; i < tries; i++){
         l += "&#128515"
     }
-    hiddenWord.innerHTML = s;
+    elem.innerHTML = s;
     lives.innerHTML = l;
     window.scrollBy(0,50); 
-    
-    //juego!!!
-
-
 }
 
 function mediumGame(){
     tries = 3;
     //elegir la palabra!
     var index = Math.floor(Math.random()*11);
-    var word = arrMedium[index];
+    word = arrMedium[index];
     console.log("La palabra es: ", word);
     //definiendo los espacios en blanco!
-    var hiddenWord = document.getElementById("word");
-    var lives = document.getElementById("lives");
+    elem = document.getElementById("word");
+    lives = document.getElementById("lives");
     l = "";
     s = "";
     for(var i = 0; i < 8; i++){
@@ -98,7 +99,7 @@ function mediumGame(){
     for(var i = 0; i < tries; i++){
         l += "&#128515"
     }
-    hiddenWord.innerHTML = s;
+    elem.innerHTML = s;
     lives.innerHTML = l;
     window.scrollBy(0,50); 
 
@@ -109,12 +110,12 @@ function mediumGame(){
 function hardGame(){
     tries = 2;
     //elegir la palabra!
-    var index = Math.floor(Math.random()*7);
-    var word = arrHard[index];
+    index = Math.floor(Math.random()*7);
+    word = arrHard[index];
     console.log("La palabra es: ", word);
     //definiendo los espacios en blanco!
-    var hiddenWord = document.getElementById("word");
-    var lives = document.getElementById("lives");
+    elem = document.getElementById("word");
+    lives = document.getElementById("lives");
     l = "";
     s = "";
     for(var i = 0; i < 12; i++){
@@ -123,7 +124,7 @@ function hardGame(){
     for(var i = 0; i < tries; i++){
         l += "&#128515"
     }
-    hiddenWord.innerHTML = s;
+    elem.innerHTML = s;
     lives.innerHTML = l;
     window.scrollBy(0,50); 
 }
@@ -217,4 +218,71 @@ function drawHangman(stage) {
 }
 drawHangman(0);
 
+function game(intentos, palabra, texto, vidas) {
+    let totalTries = intentos;
+    
+    console.log("Intentos: ", intentos);
+    console.log("palabra: ", palabra);
+    console.log("texto: ", texto);
+    console.log("vidas: ", vidas);
 
+    let progreso = texto.textContent.split('');
+
+    function actualizarProgreso(letra) {
+        let encontrado = false;
+        for (let i = 0; i < palabra.length; i++) {
+            if (palabra[i] === letra) {
+                progreso[i] = letra;
+                encontrado = true;
+            }
+        }
+        return encontrado;
+    }
+
+    function haGanado() {
+        return progreso.join('') === palabra;
+    }
+
+    function actualizarPantalla() {
+        texto.textContent = progreso.join('');
+        if(totalTries == 6){
+            drawHangman(totalTries-intentos);
+        }else if(totalTries == 3){
+            drawHangman((totalTries-intentos) * 2);
+        }else{
+            drawHangman((totalTries-intentos) * 3);
+        }
+        
+    }
+
+    function manejarLetra(letra) {
+        if (!actualizarProgreso(letra)) {
+            intentos--;
+            vidas.textContent = "";
+            var l = "";
+            for(var i = 0; i < intentos; i++){
+                l += "&#128515"
+            }
+            vidas.innerHTML = l;
+        }
+        if (haGanado()) {
+            alert("¡Has ganado! La palabra era: " + palabra);
+            location.reload();
+
+        } else if (intentos === 0) {
+            alert("¡Has perdido! La palabra era: " + palabra);
+            location.reload();
+        }
+
+        actualizarPantalla();
+    }
+
+    document.querySelectorAll('.kw').forEach(button => {
+        button.addEventListener('click', () => {
+            let letra = button.textContent;
+            manejarLetra(letra);
+        });
+    });
+
+    actualizarPantalla();
+}
