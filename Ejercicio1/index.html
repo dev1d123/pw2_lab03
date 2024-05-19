@@ -1,31 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Formulario Bancario</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-    <body>
-        <div class="container">
-            <input type="text" name="text" id="in" class="in" dir = "rtl">
-            <div class="buttons">
-                <button class="b">1</button>
-                <button class="b">2</button>
-                <button class="b">3</button>
-                <button class="b">4</button>
-                <button class="b">5</button>
-                <button class="b">6</button>
-                <button class="b">7</button>
-                <button class="b">8</button>
-                <button class="b">9</button>
-                <button class="b">0</button>
-                <button id="clear" class="big">Clear</button>
+<body>
+    <header>
+        <h1>Formulario Bancario</h1>
+    </header>
+    <div class="form-container">
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="bank">Banco:</label>
+                <select name="bank" id="bank">
+                    <option value="bpv">BPC</option>
+                    <option value="interbank">Interbank</option>
+                    <option value="scotiabank">Scotiabank</option>
+                </select>
             </div>
+            <div class="form-group">
+                <label for="card-number">Número de Tarjeta:</label>
+                <input type="number" name="card-number" id="card-number" required>
+            </div>
+            <div class="form-group">
+                <label>Tipo de DNI:</label>
+                <label for="normal"><input type="radio" name="tipodni" id="normal" value="normal" checked> Normal</label>
+                <label for="electronico"><input type="radio" name="tipodni" id="electronico" value="electronico"> Electrónico</label>
+            </div>
+            <div class="form-group">
+                <label for="dni-number">Número de DNI:</label>
+                <input type="number" name="dni-number" id="dni-number" required>
+            </div>
+            <div class="container">
+                <input type="text" name="text" id="in" class="in" dir="rtl">
+                <div class="buttons">
+                    <button type="button" class="b">1</button>
+                    <button type="button" class="b">2</button>
+                    <button type="button" class="b">3</button>
+                    <button type="button" class="b">4</button>
+                    <button type="button" class="b">5</button>
+                    <button type="button" class="b">6</button>
+                    <button type="button" class="b">7</button>
+                    <button type="button" class="b">8</button>
+                    <button type="button" class="b">9</button>
+                    <button type="button" class="b">0</button>
+                    <button type="button" id="clear" class="big">Clear</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <a href="#" class="forgot-password">Olvidé mi contraseña</a>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
 
-            
-        </div>
-
-        <script src="script_ejercicio_01.js"></script>
-    </body>
+    <script src="script_ejercicio_01.js"></script>
+</body>
 </html>
