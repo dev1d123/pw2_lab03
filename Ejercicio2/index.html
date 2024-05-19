@@ -8,7 +8,8 @@
 </head>
 <body>
     <div class="container">
-        <input type="text" name="text" id="in" class="in" dir = "ltr">
+        <p>Calculadora By David</p>
+        <input type="text" name="text" id="in" class="in" dir="ltr">
         <div class="buttons">
             <button class="b">Del</button>
             <button class="b o">(</button>
@@ -34,12 +35,20 @@
             <button class="b">.</button>
             <button class="b o">%</button>
             <button class="b o">+</button>
-
         </div>
         <div id="stack">
-
+            <table id="stack-table">
+                <thead>
+                    <tr>
+                        <th>Expresión</th>
+                        <th>Resultado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Historial de cálculos se insertará aquí -->
+                </tbody>
+            </table>
         </div>
-        
     </div>
     <script src="script_ejercicio_02.js"></script>
 </body>
